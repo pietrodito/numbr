@@ -46,3 +46,7 @@ create_folder_and_files(subdir, filenames)
 subdir <- "hundered-files"
 filenames <- paste0(1:100, "-script.R")
 create_folder_and_files(subdir, filenames)
+
+subdir <- "insert-files-1-2-3"
+filenames <- paste0(1:3, "-script.R")
+create_folder_and_files(subdir, filenames)

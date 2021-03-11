@@ -1,0 +1,22 @@
+insert_script_at <- function(path = "R", pos, name) {
+  
+  ls_result <- tibble::as_tibble(list_r_numbered_files(path))
+  
+  row_nb <- which(ls_result$numbers == pos)
+  if(length(row_nb) == 1) {
+  ls_result$numbers <- ls_result$numbers + (ls_result$numbers >= pos) 
+  ls_result <- dplyr::add_row(
+    ls_result,
+    files = "boo.R",
+    names = paste0(name, ".R"),
+    numbers = pos,
+    numbers_as_char = "",
+    .before = row_nb)
+  }
+  ls_result <- dplyr::mutate(ls_result,
+                             new_files = paste0(path, "/", numbers, "-", names),
+                             files = paste0(path, "/", files))
+  fs::file_create(paste0(path, "/boo.R"))
+  
+  with(ls_result, purrr::map2(files, new_files, fs::file_move))
+}
