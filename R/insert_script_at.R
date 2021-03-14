@@ -14,8 +14,8 @@ insert_script_at <- function(path = "R", pos, name) {
     .before = row_nb)
   }
   ls_result <- dplyr::mutate(ls_result,
-                             new_files = paste0(path, "/", numbers, "-", names),
-                             files = paste0(path, "/", files))
+                             new_files = paste0(path, "/", ls_result$numbers, "-", names),
+                             files = paste0(path, "/", ls_result$files))
   fs::file_create(paste0(path, "/boo.R"))
   
   with(ls_result, purrr::map2(files, new_files, fs::file_move))

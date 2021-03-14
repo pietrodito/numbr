@@ -19,7 +19,7 @@ delete_files <- function(path, ..., confirm = T) {
 
     is_there_any_match <- sum(detection$anycolxxx) > 0
     if (is_there_any_match) {
-      detection <- dplyr::filter(detection, anycolxxx)
+      detection <- dplyr::filter(detection, detection$anycolxxx)
       detection <- detection[,-ncol(detection)]
 
       messages <- purrr::map(seq_len(nrow(detection)),
@@ -39,7 +39,7 @@ delete_files <- function(path, ..., confirm = T) {
 
       do_not_want_to_delete <- FALSE
       if (confirm) {
-        do_not_want_to_delete <- askYesNo(
+        do_not_want_to_delete <- utils::askYesNo(
           paste0(
             "All those files will be deleted:\n\n",
             paste(detected, collapse = "\n"),

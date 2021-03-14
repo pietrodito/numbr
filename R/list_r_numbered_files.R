@@ -5,7 +5,7 @@ list_r_numbered_files <- function(path = "R") {
   numbers <- stringr::str_remove(numbers, "-")
   numbered <- ! is.na(numbers)
   names <- stringr::str_remove(ls_result[numbered], "[0-9]+-")
-  numbers_as_char <- as.character(na.omit(numbers))
+  numbers_as_char <- as.character(stats::na.omit(numbers))
   numbers <- as.integer(numbers_as_char)
 
   files <- character()
