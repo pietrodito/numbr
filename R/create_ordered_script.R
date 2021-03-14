@@ -1,5 +1,5 @@
 #' @export
-create_ordered_script <- function(path="R", name) {
+create_ordered_script <- function(name, path = "R") {
   nbs <- list_r_numbered_files(path)$numbers
 
   first_gap <- 0
@@ -10,6 +10,6 @@ create_ordered_script <- function(path="R", name) {
     first_gap <- min(which(!(first_integers == nbs)))
     if (first_gap == 0)
       first_gap <- length(nbs) + 1
-    fs::file_create(paste0(path, "/", first_gap, "-", name, ".R"))
   }
+    fs::file_create(paste0(path, "/", first_gap, "-", name, ".R"))
 }

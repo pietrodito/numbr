@@ -1,10 +1,12 @@
-create_folder_and_files <- function(subdir, filenames) {
+create_folder_and_files <- function(subdir, filenames = NA) {
 
   subdir <- paste0("temp/", subdir)
 
   fs::dir_create(subdir)
-  fs::file_create(paste(subdir, filenames, sep = "/"))
-
+  
+  if(length(filenames > 0))
+    fs::file_create(paste(subdir, filenames, sep = "/"))
+    
   if(is_testing()) withr::defer(fs::dir_delete(subdir), teardown_env())
 }
 
@@ -50,3 +52,6 @@ create_folder_and_files(subdir, filenames)
 subdir <- "insert-files-1-2-3"
 filenames <- paste0(1:3, "-script.R")
 create_folder_and_files(subdir, filenames)
+
+subdir <- "empty"
+create_folder_and_files(subdir)

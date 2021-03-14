@@ -1,6 +1,10 @@
 test_that("create_ordered_script works", {
 
-  create_ordered_script("temp/create-1-3", "data-management")
+  create_ordered_script("data-management", "temp/create-1-3")
 
   check_file_numbers("temp/create-1-3", 1:3)
+  
+  create_ordered_script("data-management", "temp/empty")
+  
+  check_file_numbers("temp/empty", 1)
 })
