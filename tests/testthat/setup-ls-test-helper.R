@@ -5,6 +5,7 @@ check_file_number_and_names <-
   }
 
 check_file_numbers <- function(path, numbers) {
- actuals <- as.integer(list_r_numbered_files(path)$numbers)
+  ls_result <- list_r_numbered_files(path)
+ actuals <- as.integer(ls_result$numbers)
  expect_equal(actuals , numbers)
 }
