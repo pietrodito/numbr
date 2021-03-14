@@ -2,12 +2,12 @@ Package: numbr
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Pierre",
+           family = "Balaye",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "pierrebalaye@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: Organize your R script directory with numbered files.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
