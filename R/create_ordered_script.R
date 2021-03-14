@@ -1,3 +1,4 @@
+#' @export
 create_ordered_script <- function(path="R", name) {
   nbs <- list_r_numbered_files(path)$numbers
 
