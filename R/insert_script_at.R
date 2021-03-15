@@ -14,10 +14,20 @@ insert_script_at <- function(path = "R", pos, name) {
     numbers_as_char = "",
     .before = row_nb)
   }
+  
+  fs::dir_create(paste0(path, "/temp/"))
+  
   ls_result <- dplyr::mutate(ls_result,
-                             new_files = paste0(path, "/", ls_result$numbers, "-", names),
+                             new_files = paste0(path, "/",
+                                                ls_result$numbers, "-", names),
+                             temp_files = paste0(path, "/temp/",
+                                                ls_result$numbers, "-", names),
                              files = paste0(path, "/", ls_result$files))
+  
   fs::file_create(paste0(path, "/tempnamethatdoesnotexist.R"))
   
-  with(ls_result, purrr::map2(files, new_files, fs::file_move))
+  with(ls_result, purrr::map2(files, temp_files, fs::file_move))
+  with(ls_result, purrr::map2(temp_files, new_files, fs::file_move))
+  
+  add_leading_zero(path)
 }
