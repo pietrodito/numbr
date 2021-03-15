@@ -13,6 +13,8 @@ create_ordered_script <- function(name, path = "R") {
     else
       first_gap <- min(discordant)
   }
-    fs::file_create(paste0(path, "/", first_gap, "-", name, ".R"))
+  new_file <- paste0(path, "/", first_gap, "-", name, ".R")
+    fs::file_create(new_file)
     add_leading_zero(path)
+    message(paste0("File created: ", new_file))
 }
