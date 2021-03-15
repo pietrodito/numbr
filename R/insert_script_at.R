@@ -15,7 +15,11 @@ insert_script_at <- function(path = "R", pos, name) {
     .before = row_nb)
   }
   
-  fs::dir_create(paste0(path, "/temp/"))
+  do.call(function() {
+    fs::dir_create(paste0(path, "/temp/"))
+    withr::defer_parent(fs::dir_delete(paste0(path, "/temp/")))
+  }, args = list())
+  
   
   ls_result <- dplyr::mutate(ls_result,
                              new_files = paste0(path, "/",
