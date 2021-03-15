@@ -45,6 +45,10 @@ subdir <- "twenty-files"
 filenames <- paste0(1:20, "-script.R")
 create_folder_and_files(subdir, filenames)
 
+subdir <- "insert-twenty-files"
+filenames <- paste0(1:20, "-script.R")
+create_folder_and_files(subdir, filenames)
+
 subdir <- "hundered-files"
 filenames <- paste0(1:100, "-script.R")
 create_folder_and_files(subdir, filenames)
