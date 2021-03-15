@@ -5,7 +5,7 @@ reorder_files <- function(path) {
     numbers <- ls_nb_result$numbers
     new_numbers <- seq_along(numbers)
 
-   purrr::pmap(list(numbers,
+   purrr::pwalk(list(numbers,
                     new_numbers,
                     ls_nb_result$names),
                function(nb, new_nb, name) {

@@ -26,8 +26,8 @@ insert_script_at <- function(path = "R", pos, name) {
   
   fs::file_create(paste0(path, "/tempnamethatdoesnotexist.R"))
   
-  with(ls_result, purrr::map2(files, temp_files, fs::file_move))
-  with(ls_result, purrr::map2(temp_files, new_files, fs::file_move))
+  with(ls_result, purrr::walk2(files, temp_files, fs::file_move))
+  with(ls_result, purrr::walk2(temp_files, new_files, fs::file_move))
   
   add_leading_zero(path)
 }

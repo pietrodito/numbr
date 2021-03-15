@@ -29,7 +29,7 @@ delete_scripts <- function(path, ..., confirm = T) {
                                     detected = colnames(detection)[as.logical(detection[i,])])
                              })
 
-      purrr::map(messages, function(m) {
+      purrr::walk(messages, function(m) {
         message(paste(
           paste(m$pattern, "is in"),
           paste(m$detected, collapse = ", ")

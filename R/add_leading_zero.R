@@ -14,6 +14,6 @@ add_leading_zero <- function(path) {
   old_files <- paste0(path, "/", ls_result$files)
   new_files <- paste0(path, "/", helper(nb_digits, nbs), "-", ls_result$names)
 
-  purrr::map2(old_files, new_files, fs::file_move)
+  purrr::walk2(old_files, new_files, fs::file_move)
 }
 
