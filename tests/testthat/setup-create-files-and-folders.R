@@ -55,3 +55,5 @@ create_folder_and_files(subdir, filenames)
 
 subdir <- "empty"
 create_folder_and_files(subdir)
+
+if(is_testing()) withr::defer(fs::dir_delete("temp"), teardown_env())
