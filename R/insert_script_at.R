@@ -1,3 +1,4 @@
+#' @export
 insert_script_at <- function(path = "R", pos, name) {
   
   ls_result <- tibble::as_tibble(list_r_numbered_files(path))
@@ -7,7 +8,7 @@ insert_script_at <- function(path = "R", pos, name) {
   ls_result$numbers <- ls_result$numbers + (ls_result$numbers >= pos) 
   ls_result <- dplyr::add_row(
     ls_result,
-    files = "boo.R",
+    files = "tempnamethatdoesnotexist.R",
     names = paste0(name, ".R"),
     numbers = pos,
     numbers_as_char = "",
@@ -16,7 +17,7 @@ insert_script_at <- function(path = "R", pos, name) {
   ls_result <- dplyr::mutate(ls_result,
                              new_files = paste0(path, "/", ls_result$numbers, "-", names),
                              files = paste0(path, "/", ls_result$files))
-  fs::file_create(paste0(path, "/boo.R"))
+  fs::file_create(paste0(path, "/tempnamethatdoesnotexist.R"))
   
   with(ls_result, purrr::map2(files, new_files, fs::file_move))
 }

@@ -1,3 +1,4 @@
+#' @export
 delete_scripts <- function(path, ..., confirm = T) {
   arguments <- list(...)
   ls_result <- list_r_numbered_files(path)
