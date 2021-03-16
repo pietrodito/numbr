@@ -1,5 +1,11 @@
-#' Create a new script 
-#' @export
+#' Create a new script and numbers it with the first integer not used in 
+#' the directory. After creation the files is open for edition.
+#' 
+#' @param name (chr) The file name (without number)
+#' @param path (chr) The target directory (default = "R")
+#' @param edit_file (lgl) If TRUE the file will be open (default = T)
+#' 
+#' @export 
 create_ordered_script <- function(name, path = "R", edit_file = T) {
   nbs <- list_r_numbered_files(path)$numbers
 
@@ -20,5 +26,5 @@ create_ordered_script <- function(name, path = "R", edit_file = T) {
   add_leading_zero(path)
   message(paste0("File created: ", new_file))
     
-  if(edit_file) file.edit(new_file)  
+  if(edit_file) utils::file.edit(new_file)  
 }

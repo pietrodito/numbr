@@ -1,3 +1,10 @@
+#' Create a new script and numbers it with the first integer not used in 
+#' the directory. After creation the files is open for edition.
+#' 
+#' @param ... (chr) patterns used to select files for deletion
+#' @param path (chr) The target directory (default = "R")
+#' @param confirm (lgl) If FALSE no confirmation is asked (default = T)
+#' 
 #' @export
 delete_scripts <- function(..., path = "R", confirm = T) {
   arguments <- unlist(list(...))

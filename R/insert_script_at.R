@@ -1,3 +1,10 @@
+#' Create a new script and numbers it with the first integer not used in 
+#' the directory. After creation the files is open for edition.
+#' 
+#' @param path (chr) The target directory (default = "R")
+#' @param pos  (int) The position at which the new file will be inserted
+#' @param name (chr) The name of the new files (without number)
+#' 
 #' @export
 insert_script_at <- function(path = "R", pos, name) {
   
