@@ -1,12 +1,12 @@
 Package: numbr
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: This Package Helps Organizing Your Scripts By Automatically Numbering Them
+Version: 1.0.0
 Authors@R: 
     person(given = "Pierre",
            family = "Balaye",
            role = c("aut", "cre"),
            email = "pierrebalaye@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "https://orcid.org/0000-0002-7045-5065"))
 Description: Organize your R script directory with numbered files.
 License: GPL (>= 3)
 Encoding: UTF-8
