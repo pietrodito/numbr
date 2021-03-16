@@ -1,6 +1,6 @@
 #' @export
-delete_scripts <- function(path, ..., confirm = T) {
-  arguments <- list(...)
+delete_scripts <- function(..., path = "R", confirm = T) {
+  arguments <- unlist(list(...))
   ls_result <- list_r_numbered_files(path)
   nb_files <- length(ls_result$files)
 
@@ -25,7 +25,7 @@ delete_scripts <- function(path, ..., confirm = T) {
 
       messages <- purrr::map(seq_len(nrow(detection)),
                              function(i) {
-                               list(pattern = rownames(detection)[i],
+                               list(pattern = arguments[i],
                                     detected = colnames(detection)[as.logical(detection[i,])])
                              })
 
@@ -58,6 +58,7 @@ delete_scripts <- function(path, ..., confirm = T) {
         fs::file_move(detected, paste0(path, "/Trash"))
       }
     }
-
   }
+  reorder_scripts(path)
+  NULL
 }
