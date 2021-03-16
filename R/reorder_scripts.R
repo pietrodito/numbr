@@ -1,4 +1,4 @@
-reorder_files <- function(path) {
+reorder_scripts <- function(path) {
   check_file_order <- purrr::quietly(check_file_order)
   if( ! check_file_order(path)$result) {
     ls_nb_result <- list_r_numbered_files(path)
