@@ -1,5 +1,5 @@
 Package: numbr
-Title: This Package Helps Organizing Your Scripts By Automatically Numbering Them
+Title: Number Your Scripts
 Version: 0.1.0
 Authors@R: 
     person(given = "Pierre",
