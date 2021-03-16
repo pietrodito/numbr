@@ -26,5 +26,9 @@ create_ordered_script <- function(name, path = "R", edit_file = T) {
   add_leading_zero(path)
   message(paste0("File created: ", new_file))
     
-  if(edit_file) utils::file.edit(new_file)  
+  if(edit_file)
+    if(Sys.getenv("RSTUDIO") == "1")
+      rstudioapi::navigateToFile(new_file)
+  else
+      utils::file.edit(new_file)
 }
