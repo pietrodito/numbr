@@ -1,6 +1,6 @@
 Package: numbr
 Title: Number Your Scripts
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Pierre",
            family = "Balaye",
