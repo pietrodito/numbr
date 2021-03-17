@@ -2,10 +2,11 @@
 % Please edit documentation in R/insert_script_at.R
 \name{insert_script_at}
 \alias{insert_script_at}
-\title{Create a new script and numbers it with the first integer not used in
-the directory. After creation the files is open for edition.}
+\title{Create a new script and numbers it with the integer used as parameter.
+All files are renumbered accordingly the directory. After creation the file
+is open for edition.}
 \usage{
-insert_script_at(path = "R", pos, name)
+insert_script_at(path = "R", pos, name, edit_file = T)
 }
 \arguments{
 \item{path}{(chr) The target directory (default = "R")}
@@ -13,8 +14,11 @@ insert_script_at(path = "R", pos, name)
 \item{pos}{(int) The position at which the new file will be inserted}
 
 \item{name}{(chr) The name of the new files (without number)}
+
+\item{edit_file}{(lgl) If TRUE the file will be open (default = T)}
 }
 \description{
-Create a new script and numbers it with the first integer not used in
-the directory. After creation the files is open for edition.
+Create a new script and numbers it with the integer used as parameter.
+All files are renumbered accordingly the directory. After creation the file
+is open for edition.
 }

@@ -1,5 +1,5 @@
-#' Create a new script and numbers it with the first integer not used in 
-#' the directory. After creation the files is open for edition.
+#' This function deletes any script that matches one of the patterns passed as
+#' parameter.
 #' 
 #' @param ... (chr) patterns used to select files for deletion
 #' @param path (chr) The target directory (default = "R")

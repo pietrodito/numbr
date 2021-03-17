@@ -2,8 +2,8 @@
 % Please edit documentation in R/delete_scripts.R
 \name{delete_scripts}
 \alias{delete_scripts}
-\title{Create a new script and numbers it with the first integer not used in
-the directory. After creation the files is open for edition.}
+\title{This function deletes any script that matches one of the patterns passed as
+parameter.}
 \usage{
 delete_scripts(..., path = "R", confirm = T)
 }
@@ -15,6 +15,6 @@ delete_scripts(..., path = "R", confirm = T)
 \item{confirm}{(lgl) If FALSE no confirmation is asked (default = T)}
 }
 \description{
-Create a new script and numbers it with the first integer not used in
-the directory. After creation the files is open for edition.
+This function deletes any script that matches one of the patterns passed as
+parameter.
 }

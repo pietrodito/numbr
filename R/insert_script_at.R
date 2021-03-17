@@ -1,12 +1,14 @@
-#' Create a new script and numbers it with the first integer not used in 
-#' the directory. After creation the files is open for edition.
+#' Create a new script and numbers it with the integer used as parameter.
+#' All files are renumbered accordingly the directory. After creation the file
+#' is open for edition.
 #' 
 #' @param path (chr) The target directory (default = "R")
 #' @param pos  (int) The position at which the new file will be inserted
 #' @param name (chr) The name of the new files (without number)
+#' @param edit_file (lgl) If TRUE the file will be open (default = T)
 #' 
 #' @export
-insert_script_at <- function(path = "R", pos, name) {
+insert_script_at <- function(path = "R", pos, name, edit_file = T) {
   
   ls_result <- tibble::as_tibble(list_r_numbered_files(path))
   
