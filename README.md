@@ -47,7 +47,8 @@ The package plays well in RStudio, because when you create a script it opens it,
 
 ## TODO
 
-+ Auto-save environment after each script has been sourced and source scripts that
-have been modified or dependent of scripts that have been modified
-+ Do the same for data files detect if they have been modified and source dependent
-scripts accordingly
++ Auto-save global environment after each script has been sourced. Then, only 
+source scripts that have been modified or are dependent of scripts that have
+been modified
++ Do the same for data files detect if they have been modified and source
+dependent scripts accordingly
