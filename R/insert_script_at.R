@@ -43,4 +43,12 @@ insert_script_at <- function(path = "R", pos, name, edit_file = T) {
   with(ls_result, purrr::walk2(temp_files, new_files, fs::file_move))
   
   add_leading_zero(path)
+  
+  new_file <- paste0(path, list_r_numbered_files(path)$files[pos])
+    
+  if(edit_file)
+    if(Sys.getenv("RSTUDIO") == "1")
+      rstudioapi::navigateToFile(new_file)
+  else
+      utils::file.edit(new_file)
 }
