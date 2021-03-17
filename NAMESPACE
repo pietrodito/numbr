@@ -3,3 +3,4 @@
 export(create_ordered_script)
 export(delete_scripts)
 export(insert_script_at)
+export(run_numbered_scripts)
