@@ -2,13 +2,13 @@
 #' All files are renumbered accordingly the directory. After creation the file
 #' is open for edition.
 #' 
-#' @param path (chr) The target directory (default = "R")
 #' @param pos  (int) The position at which the new file will be inserted
 #' @param name (chr) The name of the new files (without number)
+#' @param path (chr) The target directory (default = "R")
 #' @param edit_file (lgl) If TRUE the file will be open (default = T)
 #' 
 #' @export
-nbr_insert_at <- function(path = "R", pos, name, edit_file = T) {
+nbr_insert_at <- function(pos, name, path = "R", edit_file = T) {
   
   ls_result <- tibble::as_tibble(list_r_numbered_files(path))
   

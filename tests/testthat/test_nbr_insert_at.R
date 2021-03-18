@@ -1,6 +1,6 @@
 test_that("nbr_insert_at works", {
   
-  nbr_insert_at("temp/insert-files-1-2-3", 3, "data-management", F)
+  nbr_insert_at(3, "data-management", "temp/insert-files-1-2-3", F)
   
   expect_equal(list_r_numbered_files("temp/insert-files-1-2-3")$files,
                c("1-script.R",
@@ -9,7 +9,7 @@ test_that("nbr_insert_at works", {
                  "4-script.R"))})
 
 
-  nbr_insert_at("temp/insert-twenty-files", 3, "HELLO", F)
+  nbr_insert_at(3, "HELLO", "temp/insert-twenty-files", F)
 
   expect_equal(list_r_numbered_files("temp/insert-twenty-files")$files,
               c(
