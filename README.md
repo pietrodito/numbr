@@ -23,10 +23,10 @@ This is why this packages is here.
 
 ```
 > library(numbr)
-> create_ordered_script("import")
-> create_ordered_script("data-management")
-> create_ordered_script("table-1")
-> insert_script_at(3, "imputation")
+> nbr_new("import")
+> nbr_new("data-management")
+> nbr_new("table-1")
+> nbr_insert_at(3, "imputation")
 ```
 After that, you will have :
 ```
@@ -37,7 +37,7 @@ After that, you will have :
 4-table-1.R
 ```
 
-You can source all scripts with `run_numbered_scripts()`
+You can source all scripts with `nbr_source_all()`
 
 Leading zeros are added when you have more than 10 or 100 scripts.
 

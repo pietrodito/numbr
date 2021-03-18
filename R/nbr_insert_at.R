@@ -8,7 +8,7 @@
 #' @param edit_file (lgl) If TRUE the file will be open (default = T)
 #' 
 #' @export
-insert_script_at <- function(path = "R", pos, name, edit_file = T) {
+nbr_insert_at <- function(path = "R", pos, name, edit_file = T) {
   
   ls_result <- tibble::as_tibble(list_r_numbered_files(path))
   

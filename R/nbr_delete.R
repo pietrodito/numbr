@@ -6,7 +6,7 @@
 #' @param confirm (lgl) If FALSE no confirmation is asked (default = T)
 #' 
 #' @export
-delete_scripts <- function(..., path = "R", confirm = T) {
+nbr_delete <- function(..., path = "R", confirm = T) {
   arguments <- unlist(list(...))
   ls_result <- list_r_numbered_files(path)
   nb_files <- length(ls_result$files)

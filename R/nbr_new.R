@@ -6,7 +6,7 @@
 #' @param edit_file (lgl) If TRUE the file will be open (default = T)
 #' 
 #' @export 
-create_ordered_script <- function(name, path = "R", edit_file = T) {
+nbr_new <- function(name, path = "R", edit_file = T) {
   nbs <- list_r_numbered_files(path)$numbers
 
   first_gap <- 0
