@@ -5,12 +5,12 @@
 \title{This function deletes any script that matches one of the patterns passed as
 parameter.}
 \usage{
-nbr_delete(..., path = "R", confirm = T)
+nbr_delete(..., dir = "R", confirm = T)
 }
 \arguments{
 \item{...}{(chr) patterns used to select files for deletion}
 
-\item{path}{(chr) The target directory (default = "R")}
+\item{dir}{(chr) The target directory (default = "R")}
 
 \item{confirm}{(lgl) If FALSE no confirmation is asked (default = T)}
 }

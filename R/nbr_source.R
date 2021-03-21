@@ -3,7 +3,7 @@
 #' 
 #' @param script (chr) The name of the script file
 #' @param dir (chr) The target directory (default = "R")
-#' @param confirm_duraion (int) duration threshold to ask for confirmation (ms) 
+#' @param confirm_duration (int) duration threshold to ask for confirmation (ms) 
 #' 
 #' @export
 nbr_source <- function(script,

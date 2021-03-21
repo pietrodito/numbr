@@ -3,18 +3,18 @@
 \name{nbr_new}
 \alias{nbr_new}
 \title{Create a new script and numbers it with the first integer not used in
-the directory. After creation the files is open for edition.}
+the directory. After creation the file is open for edition.}
 \usage{
-nbr_new(name, path = "R", edit_file = T)
+nbr_new(name, dir = "R", edit_file = T)
 }
 \arguments{
-\item{name}{(chr) The file name (without number)}
+\item{name}{(chr) The script file name (without number)}
 
-\item{path}{(chr) The target directory (default = "R")}
+\item{dir}{(chr) The target directory (default = "R")}
 
 \item{edit_file}{(lgl) If TRUE the file will be open (default = T)}
 }
 \description{
 Create a new script and numbers it with the first integer not used in
-the directory. After creation the files is open for edition.
+the directory. After creation the file is open for edition.
 }

@@ -25,4 +25,7 @@ Imports:
     purrr,
     withr,
     rstudioapi,
-    magrittr
+    magrittr,
+    microbenchmark,
+    readr,
+    tidyr

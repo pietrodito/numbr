@@ -3,5 +3,6 @@
 export(nbr_delete)
 export(nbr_insert_at)
 export(nbr_new)
+export(nbr_source)
 export(nbr_source_all)
 importFrom(magrittr,"%>%")
