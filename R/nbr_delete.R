@@ -2,13 +2,13 @@
 #' parameter.
 #' 
 #' @param ... (chr) patterns used to select files for deletion
-#' @param path (chr) The target directory (default = "R")
+#' @param dir (chr) The target directory (default = "R")
 #' @param confirm (lgl) If FALSE no confirmation is asked (default = T)
 #' 
 #' @export
-nbr_delete <- function(..., path = "R", confirm = T) {
+nbr_delete <- function(..., dir = "R", confirm = T) {
   arguments <- unlist(list(...))
-  ls_result <- list_r_numbered_files(path)
+  ls_result <- list_r_numbered_files(dir)
   nb_files <- length(ls_result$files)
 
   if (nb_files > 0) {
@@ -60,12 +60,12 @@ nbr_delete <- function(..., path = "R", confirm = T) {
 
       if (!is.na(do_not_want_to_delete) &
           !do_not_want_to_delete)  {
-        detected <- paste0(path, "/", detected)
-        fs::dir_create(paste0(path, "/Trash"))
-        fs::file_move(detected, paste0(path, "/Trash"))
+        detected <- paste0(dir, "/", detected)
+        fs::dir_create(paste0(dir, "/Trash"))
+        fs::file_move(detected, paste0(dir, "/Trash"))
       }
     }
   }
-  reorder_scripts(path)
+  reorder_scripts(dir)
   NULL
 }

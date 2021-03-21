@@ -1,13 +1,13 @@
 #' Create a new script and numbers it with the first integer not used in 
-#' the directory. After creation the files is open for edition.
+#' the directory. After creation the file is open for edition.
 #' 
-#' @param name (chr) The file name (without number)
-#' @param path (chr) The target directory (default = "R")
+#' @param name (chr) The script file name (without number)
+#' @param dir (chr) The target directory (default = "R")
 #' @param edit_file (lgl) If TRUE the file will be open (default = T)
 #' 
 #' @export 
-nbr_new <- function(name, path = "R", edit_file = T) {
-  nbs <- list_r_numbered_files(path)$numbers
+nbr_new <- function(name, dir = "R", edit_file = T) {
+  nbs <- list_r_numbered_files(dir)$numbers
 
   first_gap <- 0
   if (length(nbs) == 0)
@@ -20,10 +20,10 @@ nbr_new <- function(name, path = "R", edit_file = T) {
     else
       first_gap <- min(discordant)
   }
-  new_file <- paste0(path, "/", first_gap, "-", name, ".R")
+  new_file <- paste0(dir, "/", first_gap, "-", name, ".R")
   
   fs::file_create(new_file)
-  add_leading_zero(path)
+  add_leading_zero(dir)
   message(paste0("File created: ", new_file))
     
   if(edit_file)
