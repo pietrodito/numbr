@@ -1,11 +1,11 @@
 #' Run all numbered scripts in the target directory.
 #'
-#' @param path (chr) The target directory (default = "R")
+#' @param dir (chr) The target directory (default = "R")
 #'
 #' @export
-nbr_source_all <- function(path = "R") {
+nbr_source_all <- function(dir = "R") {
   if (Sys.getenv("RSTUDIO") == "1")
     rstudioapi::documentSaveAll()
-  purrr::walk(list_r_numbered_files(path)$files,
-              ~ source(paste0(path, "/", .)))
+  scripts <-list_r_numbered_files(dir)$files 
+  nbr_source(tail(scripts, n = 1), dir)
 }
