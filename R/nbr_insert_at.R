@@ -43,7 +43,7 @@ nbr_insert_at <- function(pos, name, dir = "R", edit_file = T) {
   
   add_leading_zero(dir)
   
-  new_file <- paste0(dir, list_r_numbered_files(dir)$files[pos])
+  new_file <- paste0(dir, "/", list_r_numbered_files(dir)$files[pos])
     
   if(edit_file)
     if(Sys.getenv("RSTUDIO") == "1")
