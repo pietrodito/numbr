@@ -57,6 +57,17 @@ subdir <- "insert-files-1-2-3"
 filenames <- paste0(1:3, "-script.R")
 create_folder_and_files(subdir, filenames)
 
+subdir <- "move-files-1-2-3-data-info"
+filenames <- paste0(1:3, "-script.R")
+create_folder_and_files(subdir, unlist(filenames))
+fs::dir_create(paste0("temp/", subdir, "/.nbr/"))
+fs::file_create(paste0(paste0("temp/", subdir, "/.nbr/"), 1:3, "-script.R", nbr_data_suffix))
+fs::file_create(paste0(paste0("temp/", subdir, "/.nbr/"), 1:3, "-script.R", nbr_info_suffix))
+
+subdir <- "source-files-1-2-3"
+filenames <- c("1-foo.R", "2-bar.R", "3-rig.R")
+create_folder_and_files(subdir, unlist(filenames))
+
 subdir <- "empty"
 create_folder_and_files(subdir)
 
