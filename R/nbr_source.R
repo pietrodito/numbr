@@ -6,6 +6,8 @@
 #' @param confirm_duration (int) duration threshold to ask for confirmation (ms) 
 #' 
 #' @export
+#' 
+#' @importFrom rlang .data 
 nbr_source <- function(script,
                        dir = "R",
                        confirm_duration = 15*1e3) {
@@ -38,21 +40,22 @@ nbr_source <- function(script,
   (
     infos
     %>% dplyr::mutate(
-     extension = as.character(stringr::str_match(infos$path, "\\.[Rr].*")),
-     extension =  factor(extension, 
+     extension = as.character(stringr::str_match(.data$path, "\\.[Rr].*")),
+     extension =  factor(.data$extension, 
                          levels = c(".R", ".R.Rdata", ".R.info")),
-     name = stringr::str_remove(infos$path, dir),
-     name = stringr::str_remove(name, "\\.[Rr].*"))
+     name = stringr::str_remove(.data$path, dir),
+     name = stringr::str_remove(.data$name, "\\.[Rr].*"))
     %>% dplyr::select(c("name", "extension", "modification_time"))
-  %>% tidyr::spread(
-      key = extension,
-      value = modification_time,
+    %>% tidyr::spread(
+      key = .data$extension,  
+      value = .data$modification_time, 
       drop = F)
-    %>% dplyr::filter(name < script)
-    %>% dplyr::mutate(
-      has_changed = .R > .R.Rdata)
-  ) -> infos
-  infos$has_changed = tidyr::replace_na(infos$has_changed, T)
+    %>% dplyr::filter(.data$name < script)
+    %>% dplyr::mutate(has_changed = .data$.R > .data$.R.Rdata,
+                      has_changed = tidyr::replace_na(.data$has_changed, T))
+  ) -> which_files_have_changed
+  
+  infos <- which_files_have_changed
   
   if (any(infos$has_changed)) {
     last_unchanged <- min(which(infos$has_changed)) - 1
