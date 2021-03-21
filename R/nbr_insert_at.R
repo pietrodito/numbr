@@ -31,16 +31,17 @@ nbr_insert_at <- function(pos, name, path = "R", edit_file = T) {
   
   
   ls_result <- dplyr::mutate(ls_result,
-                             new_files = paste0(path, "/",
+                             new_files = paste0(ls_result$numbers, "-", names),
+                             temp_files = paste0("temp-",
                                                 ls_result$numbers, "-", names),
-                             temp_files = paste0(path, "/temp/",
-                                                ls_result$numbers, "-", names),
-                             files = paste0(path, "/", ls_result$files))
+                             files = paste0(ls_result$files))
   
   fs::file_create(paste0(path, "/tempnamethatdoesnotexist.R"))
   
-  with(ls_result, purrr::walk2(files, temp_files, fs::file_move))
-  with(ls_result, purrr::walk2(temp_files, new_files, fs::file_move))
+  with(ls_result, purrr::walk2(files, temp_files,
+                               ~ move_script(.x, .y, path)))
+  with(ls_result, purrr::walk2(temp_files, new_files,
+                               ~ move_script(.x, .y, path)))
   
   add_leading_zero(path)
   
