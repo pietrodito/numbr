@@ -6,14 +6,14 @@
 All files are renumbered accordingly the directory. After creation the file
 is open for edition.}
 \usage{
-nbr_insert_at(path = "R", pos, name, edit_file = T)
+nbr_insert_at(pos, name, path = "R", edit_file = T)
 }
 \arguments{
-\item{path}{(chr) The target directory (default = "R")}
-
 \item{pos}{(int) The position at which the new file will be inserted}
 
 \item{name}{(chr) The name of the new files (without number)}
+
+\item{path}{(chr) The target directory (default = "R")}
 
 \item{edit_file}{(lgl) If TRUE the file will be open (default = T)}
 }
