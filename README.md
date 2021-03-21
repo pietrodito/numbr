@@ -50,5 +50,6 @@ The package plays well in RStudio, because when you create a script it opens it,
 + Add @param force to source funs
 + Make tests for .nbr/ discordant with R/
 + Make tests for delete and insert consistent with .nbr/
++ Close and reopen appropriate script when insert_at is used
 + Do the same for data files detect if they have been modified and source
 dependent scripts accordingly
